@@ -1,0 +1,10 @@
+[Unit]
+Description=Vault
+Documentation=https://vaultproject.io/docs/
+
+[Service]
+ExecStart=/usr/bin/vault server -config=/etc/vault.d
+ExecReload=/bin/kill -HUP $MAINPID
+
+[Install]
+WantedBy=multi-user.target
