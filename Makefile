@@ -12,6 +12,6 @@ nomad::
 consul:
 	PACKAGE_PRODUCT=consul PACKAGE_VERSION=0.7.5 PACKAGE_ARCH="386 amd64 arm" bundle exec ./package.sh
 vault:
-	PACKAGE_PRODUCT=vault PACKAGE_VERSION=0.6.4 PACKAGE_ARCH="386 amd64 arm" bundle exec ./package.sh
+	PACKAGE_PRODUCT=vault PACKAGE_VERSION=0.6.5 PACKAGE_ARCH="386 amd64 arm" bundle exec ./package.sh
 consul-template:
 	PACKAGE_PRODUCT=consul-template PACKAGE_VERSION=0.18.1 PACKAGE_ARCH="386 amd64 arm" bundle exec ./package.sh

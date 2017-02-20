@@ -1,0 +1,47 @@
+{
+  "package": {
+    "name": "vault",
+    "repo": "deb",
+    "subject": "patdowney",
+    "desc": "Hashicorp Consul (unofficial package)",
+    "website_url": "https://vault.io",
+    "issue_tracker_url": "https://github.com/hashicorp/vault/issues",
+    "vcs_url": "https://github.com/hashicorp/vault.git",
+    "licenses": ["MPL-2.0"],
+    "github_repo": "hashicorp/vault",
+    "public_download_numbers": false,
+    "public_stats": false
+  },
+  "version": {
+    "name": "0.6.5"
+  },
+  "files":
+  [
+    {
+      "includePattern": "./(vault_0.6.5.*_amd64.deb)",
+      "uploadPattern": "$1",
+      "matrixParams": {
+        "deb_distribution": "precise,trusty,vivid,xenial",
+        "deb_component": "main",
+        "deb_architecture": "amd64"}
+    },
+    {
+      "includePattern": "./(vault_0.6.5.*_i386.deb)",
+      "uploadPattern": "$1",
+      "matrixParams": {
+        "deb_distribution": "precise,trusty,vivid,xenial",
+        "deb_component": "main",
+        "deb_architecture": "i386"}
+    },
+    {
+      "includePattern": "./(vault_0.6.5.*_armhf.deb)",
+      "uploadPattern": "$1",
+      "matrixParams": {
+        "deb_distribution": "precise,trusty,vivid,xenial",
+        "deb_component": "main",
+        "deb_architecture": "armhf"}
+    }
+
+  ],
+  "publish": true
+}

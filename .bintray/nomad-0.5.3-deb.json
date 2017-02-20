@@ -1,0 +1,47 @@
+{
+  "package": {
+    "name": "nomad",
+    "repo": "deb",
+    "subject": "patdowney",
+    "desc": "Hashicorp Consul (unofficial package)",
+    "website_url": "https://nomad.io",
+    "issue_tracker_url": "https://github.com/hashicorp/nomad/issues",
+    "vcs_url": "https://github.com/hashicorp/nomad.git",
+    "licenses": ["MPL-2.0"],
+    "github_repo": "hashicorp/nomad",
+    "public_download_numbers": false,
+    "public_stats": false
+  },
+  "version": {
+    "name": "0.5.3"
+  },
+  "files":
+  [
+    {
+      "includePattern": "./(nomad_0.5.3.*_amd64.deb)",
+      "uploadPattern": "$1",
+      "matrixParams": {
+        "deb_distribution": "precise,trusty,vivid,xenial",
+        "deb_component": "main",
+        "deb_architecture": "amd64"}
+    },
+    {
+      "includePattern": "./(nomad_0.5.3.*_i386.deb)",
+      "uploadPattern": "$1",
+      "matrixParams": {
+        "deb_distribution": "precise,trusty,vivid,xenial",
+        "deb_component": "main",
+        "deb_architecture": "i386"}
+    },
+    {
+      "includePattern": "./(nomad_0.5.3.*_armhf.deb)",
+      "uploadPattern": "$1",
+      "matrixParams": {
+        "deb_distribution": "precise,trusty,vivid,xenial",
+        "deb_component": "main",
+        "deb_architecture": "armhf"}
+    }
+
+  ],
+  "publish": true
+}
