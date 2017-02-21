@@ -1,3 +1,5 @@
+.bintray/deb.json
+.bintray/rpm.json
 .build/
 vendor/
 *.deb

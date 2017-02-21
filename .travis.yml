@@ -14,47 +14,19 @@ env:
 - PACKAGE_TARGET=rpm
 install: bundle install
 script:
-- make all
+- make 
 deploy:
   - provider: bintray
-    file: ".bintray/vault-0.6.5-deb.json"
+    file: ".bintray/deb.json"
     user: patdowney
     key:
-      secure: mxiYttnfS5uhqxiDIV2kw9Lc4GgbIykn8oN5ruCpYx3MysKfr9d/bh2AP9BGYWtLXfrTXg693a1UoPCi+hrfhuT5hG5UblcVsecslDiegIuAwxsR2BLsbXGe3ccFOHi2tc5wzRdCmhzxNnTSPB4o+gcHyNtQKbf1c9BELlRUBP9sLwjVGO6ocCQU3k7buDbx0D9T6aXREkjtdsrKX8eF+wUkrq0aV6KfnEIlB/vtzhyDs5207g/3d3nuLUUj+QAfONy18yBUcBY89yJSTKlKSUFINM/NOxeVrMkO8uZuPew+cQ5SaG1GJf6sq3egacGpBEPdJPM/mTL1tPQNbGS/Ip98LsKG1gb/bucU+aQ40HQINYWsxX2OBzkWI+NQt6jTSwyIejRw70699gZTZpjbaPwKd9eU0Y6hM6FSxn7VmjSZPweBV3bcJM6Al+pWTPjpX3cdAMUVbWi7F1jgr7WO9v33r8AuHsIBIK2QBqvi4A1NZ6F0bKPxbknOmxzligxebBALTpK6kgfsCyOLhD55YsVGTtMZqdhK519qVeT777xzM3Tzn9eSUDRWZITAD5kn59hGH59cB+igFvFkIQzHD2URJ5/Jz86rYLhUcSN/xCX1OGWbzTEz+BA2CBiKK0xATR0qUcgD2RALh5EF/yF6ndmCRnTqVpHcE1HAu+ezG6k=
+      secure: 
     on:
       condition: "$PACKAGE_TARGET = deb"
   - provider: bintray
-    file: ".bintray/consul-0.7.5-deb.json"
+    file: ".bintray/rpm.json"
     user: patdowney
     key:
-      secure: mxiYttnfS5uhqxiDIV2kw9Lc4GgbIykn8oN5ruCpYx3MysKfr9d/bh2AP9BGYWtLXfrTXg693a1UoPCi+hrfhuT5hG5UblcVsecslDiegIuAwxsR2BLsbXGe3ccFOHi2tc5wzRdCmhzxNnTSPB4o+gcHyNtQKbf1c9BELlRUBP9sLwjVGO6ocCQU3k7buDbx0D9T6aXREkjtdsrKX8eF+wUkrq0aV6KfnEIlB/vtzhyDs5207g/3d3nuLUUj+QAfONy18yBUcBY89yJSTKlKSUFINM/NOxeVrMkO8uZuPew+cQ5SaG1GJf6sq3egacGpBEPdJPM/mTL1tPQNbGS/Ip98LsKG1gb/bucU+aQ40HQINYWsxX2OBzkWI+NQt6jTSwyIejRw70699gZTZpjbaPwKd9eU0Y6hM6FSxn7VmjSZPweBV3bcJM6Al+pWTPjpX3cdAMUVbWi7F1jgr7WO9v33r8AuHsIBIK2QBqvi4A1NZ6F0bKPxbknOmxzligxebBALTpK6kgfsCyOLhD55YsVGTtMZqdhK519qVeT777xzM3Tzn9eSUDRWZITAD5kn59hGH59cB+igFvFkIQzHD2URJ5/Jz86rYLhUcSN/xCX1OGWbzTEz+BA2CBiKK0xATR0qUcgD2RALh5EF/yF6ndmCRnTqVpHcE1HAu+ezG6k=
-    on:
-      condition: "$PACKAGE_TARGET = deb"
-  - provider: bintray
-    file: ".bintray/nomad-0.5.3-deb.json"
-    user: patdowney
-    key:
-      secure: mxiYttnfS5uhqxiDIV2kw9Lc4GgbIykn8oN5ruCpYx3MysKfr9d/bh2AP9BGYWtLXfrTXg693a1UoPCi+hrfhuT5hG5UblcVsecslDiegIuAwxsR2BLsbXGe3ccFOHi2tc5wzRdCmhzxNnTSPB4o+gcHyNtQKbf1c9BELlRUBP9sLwjVGO6ocCQU3k7buDbx0D9T6aXREkjtdsrKX8eF+wUkrq0aV6KfnEIlB/vtzhyDs5207g/3d3nuLUUj+QAfONy18yBUcBY89yJSTKlKSUFINM/NOxeVrMkO8uZuPew+cQ5SaG1GJf6sq3egacGpBEPdJPM/mTL1tPQNbGS/Ip98LsKG1gb/bucU+aQ40HQINYWsxX2OBzkWI+NQt6jTSwyIejRw70699gZTZpjbaPwKd9eU0Y6hM6FSxn7VmjSZPweBV3bcJM6Al+pWTPjpX3cdAMUVbWi7F1jgr7WO9v33r8AuHsIBIK2QBqvi4A1NZ6F0bKPxbknOmxzligxebBALTpK6kgfsCyOLhD55YsVGTtMZqdhK519qVeT777xzM3Tzn9eSUDRWZITAD5kn59hGH59cB+igFvFkIQzHD2URJ5/Jz86rYLhUcSN/xCX1OGWbzTEz+BA2CBiKK0xATR0qUcgD2RALh5EF/yF6ndmCRnTqVpHcE1HAu+ezG6k=
-    on:
-      condition: "$PACKAGE_TARGET = deb"
-  - provider: bintray
-    file: ".bintray/vault-0.6.5-rpm.json"
-    user: patdowney
-    key:
-      secure: mxiYttnfS5uhqxiDIV2kw9Lc4GgbIykn8oN5ruCpYx3MysKfr9d/bh2AP9BGYWtLXfrTXg693a1UoPCi+hrfhuT5hG5UblcVsecslDiegIuAwxsR2BLsbXGe3ccFOHi2tc5wzRdCmhzxNnTSPB4o+gcHyNtQKbf1c9BELlRUBP9sLwjVGO6ocCQU3k7buDbx0D9T6aXREkjtdsrKX8eF+wUkrq0aV6KfnEIlB/vtzhyDs5207g/3d3nuLUUj+QAfONy18yBUcBY89yJSTKlKSUFINM/NOxeVrMkO8uZuPew+cQ5SaG1GJf6sq3egacGpBEPdJPM/mTL1tPQNbGS/Ip98LsKG1gb/bucU+aQ40HQINYWsxX2OBzkWI+NQt6jTSwyIejRw70699gZTZpjbaPwKd9eU0Y6hM6FSxn7VmjSZPweBV3bcJM6Al+pWTPjpX3cdAMUVbWi7F1jgr7WO9v33r8AuHsIBIK2QBqvi4A1NZ6F0bKPxbknOmxzligxebBALTpK6kgfsCyOLhD55YsVGTtMZqdhK519qVeT777xzM3Tzn9eSUDRWZITAD5kn59hGH59cB+igFvFkIQzHD2URJ5/Jz86rYLhUcSN/xCX1OGWbzTEz+BA2CBiKK0xATR0qUcgD2RALh5EF/yF6ndmCRnTqVpHcE1HAu+ezG6k=
-    on:
-      condition: "$PACKAGE_TARGET = rpm"
-  - provider: bintray
-    file: ".bintray/consul-0.7.5-rpm.json"
-    user: patdowney
-    key:
-      secure: mxiYttnfS5uhqxiDIV2kw9Lc4GgbIykn8oN5ruCpYx3MysKfr9d/bh2AP9BGYWtLXfrTXg693a1UoPCi+hrfhuT5hG5UblcVsecslDiegIuAwxsR2BLsbXGe3ccFOHi2tc5wzRdCmhzxNnTSPB4o+gcHyNtQKbf1c9BELlRUBP9sLwjVGO6ocCQU3k7buDbx0D9T6aXREkjtdsrKX8eF+wUkrq0aV6KfnEIlB/vtzhyDs5207g/3d3nuLUUj+QAfONy18yBUcBY89yJSTKlKSUFINM/NOxeVrMkO8uZuPew+cQ5SaG1GJf6sq3egacGpBEPdJPM/mTL1tPQNbGS/Ip98LsKG1gb/bucU+aQ40HQINYWsxX2OBzkWI+NQt6jTSwyIejRw70699gZTZpjbaPwKd9eU0Y6hM6FSxn7VmjSZPweBV3bcJM6Al+pWTPjpX3cdAMUVbWi7F1jgr7WO9v33r8AuHsIBIK2QBqvi4A1NZ6F0bKPxbknOmxzligxebBALTpK6kgfsCyOLhD55YsVGTtMZqdhK519qVeT777xzM3Tzn9eSUDRWZITAD5kn59hGH59cB+igFvFkIQzHD2URJ5/Jz86rYLhUcSN/xCX1OGWbzTEz+BA2CBiKK0xATR0qUcgD2RALh5EF/yF6ndmCRnTqVpHcE1HAu+ezG6k=
-    on:
-      condition: "$PACKAGE_TARGET = rpm"
-  - provider: bintray
-    file: ".bintray/nomad-0.7.5-rpm.json"
-    user: patdowney
-    key:
-      secure: mxiYttnfS5uhqxiDIV2kw9Lc4GgbIykn8oN5ruCpYx3MysKfr9d/bh2AP9BGYWtLXfrTXg693a1UoPCi+hrfhuT5hG5UblcVsecslDiegIuAwxsR2BLsbXGe3ccFOHi2tc5wzRdCmhzxNnTSPB4o+gcHyNtQKbf1c9BELlRUBP9sLwjVGO6ocCQU3k7buDbx0D9T6aXREkjtdsrKX8eF+wUkrq0aV6KfnEIlB/vtzhyDs5207g/3d3nuLUUj+QAfONy18yBUcBY89yJSTKlKSUFINM/NOxeVrMkO8uZuPew+cQ5SaG1GJf6sq3egacGpBEPdJPM/mTL1tPQNbGS/Ip98LsKG1gb/bucU+aQ40HQINYWsxX2OBzkWI+NQt6jTSwyIejRw70699gZTZpjbaPwKd9eU0Y6hM6FSxn7VmjSZPweBV3bcJM6Al+pWTPjpX3cdAMUVbWi7F1jgr7WO9v33r8AuHsIBIK2QBqvi4A1NZ6F0bKPxbknOmxzligxebBALTpK6kgfsCyOLhD55YsVGTtMZqdhK519qVeT777xzM3Tzn9eSUDRWZITAD5kn59hGH59cB+igFvFkIQzHD2URJ5/Jz86rYLhUcSN/xCX1OGWbzTEz+BA2CBiKK0xATR0qUcgD2RALh5EF/yF6ndmCRnTqVpHcE1HAu+ezG6k=
+      secure: 
     on:
       condition: "$PACKAGE_TARGET = rpm"

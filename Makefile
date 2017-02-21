@@ -1,17 +1,18 @@
-all: vault consul nomad
+
+PACKAGE_PRODUCT=consul
+PACKAGE_VERSION=0.7.5
+ARCH="386 amd64 arm"
+
+default: package bintray
 
 clean:
 	rm -rf .build
 	rm -f *.deb *.rpm
 
-package:
-	bundle exec ./package.sh
+bintray:
+	cat .bintray/rpm.json.template | sed "s:%%PACKAGE_NAME%%:$(PACKAGE_PRODUCT):g;s:%%PACKAGE_VERSION%%:$(PACKAGE_VERSION):g;" > .bintray/rpm.json
+	cat .bintray/deb.json.template | sed "s:%%PACKAGE_NAME%%:$(PACKAGE_PRODUCT):g;s:%%PACKAGE_VERSION%%:$(PACKAGE_VERSION):g;" > .bintray/deb.json
 
-nomad::
-	PACKAGE_PRODUCT=nomad PACKAGE_VERSION=0.5.3 PACKAGE_ARCH="386 amd64 arm" bundle exec ./package.sh
-consul:
-	PACKAGE_PRODUCT=consul PACKAGE_VERSION=0.7.5 PACKAGE_ARCH="386 amd64 arm" bundle exec ./package.sh
-vault:
-	PACKAGE_PRODUCT=vault PACKAGE_VERSION=0.6.5 PACKAGE_ARCH="386 amd64 arm" bundle exec ./package.sh
-consul-template:
-	PACKAGE_PRODUCT=consul-template PACKAGE_VERSION=0.18.1 PACKAGE_ARCH="386 amd64 arm" bundle exec ./package.sh
+package:
+	PACKAGE_PRODUCT=$(PACKAGE_PRODUCT) PACKAGE_VERSION=$(PACKAGE_VERSION) PACKAGE_ARCH=$(PACKAGE_ARCH) bundle exec ./package.sh
+
