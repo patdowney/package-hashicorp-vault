@@ -52,6 +52,20 @@ download_checksums_sig() {
 	download_release_file ${product} ${version} ${file}
 }
 
+verify_download() {
+	local checksums
+	local file
+
+	checksums=$1
+	file=$2
+
+	grep ${f} ${checksums} | shasum --status --algorithm 256 --check -
+	if [ $? -ne 0 ]; then
+		echo "failed to verify checksum for ${file}." > /dev/stderr
+		exit 1
+	fi
+}
+
 download_release_file(){
 	local product
 	local version
@@ -70,7 +84,7 @@ download_file(){
 	url=$1
 	file=$2
 
-        curl --output ${file} ${url}
+        curl --fail --silent --output ${file} ${url}
 	if [ $? -ne 0 ]; then
 		echo "failed to download ${url}" > /dev/stderr
 		exit 1
@@ -198,9 +212,9 @@ do
 		mkdir -p ${arch}
 		f=$(download_release ${product} ${ver} ${arch})
 		echo ---${f}
+		verify_download ${checksums} ${f}
 		pushd ${arch}
                 unzip ../${f}
-#		verify_download ${checksums} ${f}
 		popd
 	done
 	popd
