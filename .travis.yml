@@ -16,7 +16,6 @@ install: bundle install
 script:
 - make all
 deploy:
-  matrix:
   - provider: bintray
     file: ".bintray/vault-0.6.5-deb.json"
     user: patdowney
