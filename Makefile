@@ -1,6 +1,6 @@
 
 PACKAGE_PRODUCT=vault
-PACKAGE_VERSION=0.8.3
+PACKAGE_VERSION=0.9.0
 ARCH="386 amd64 arm"
 
 default: package bintray
