@@ -17,6 +17,7 @@ script:
 - make
 deploy:
   - provider: bintray
+    skip_cleanup: true
     file: ".bintray/deb.json"
     user: patdowney
     key:
@@ -24,6 +25,7 @@ deploy:
     on:
       condition: "$PACKAGE_TARGET = deb"
   - provider: bintray
+    skip_cleanup: true
     file: ".bintray/rpm.json"
     user: patdowney
     key:
