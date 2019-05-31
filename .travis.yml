@@ -8,11 +8,13 @@ addons:
     - rpm
 language: ruby
 rvm:
-- 2.1.5
+- 2.4.1
 env:
 - PACKAGE_TARGET=deb
 - PACKAGE_TARGET=rpm
-install: bundle install
+install:
+-  gem install bundler
+-  bundle install
 script:
 - make
 deploy:
